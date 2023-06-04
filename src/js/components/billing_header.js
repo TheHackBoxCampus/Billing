@@ -14,4 +14,4 @@ export default class BILLING_HEADER extends HTMLElement {
     }
 }
 
-customElements.define('billing-header', BILLING_HEADER); 
+customElements.define('billing-form', BILLING_HEADER); 
