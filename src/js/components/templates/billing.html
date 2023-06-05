@@ -1,20 +1,20 @@
-<div class="container bg-secondary rounded-2" style="border: 2px dashed #000">   
+<div class="container bg-secondary rounded-2" style="border: 2px dashed #000; --bs-bg-opacity: .5;">   
     <div class="row">
-        <span class="fs-3 text-center text-light mb-4 mt-4">Encabezado de facturas</span>
+        <span class="fs-3 text-center mb-4 mt-4">Encabezado de facturas</span>
         <div class="col-sm-4 d-flex gap-5 w-100">
             <div class="input-group mb-3 w-50">
                 <span class="input-group-text" id="basic-addon1">$</span>
-                <input type="text" class="form-control" placeholder="Numero de factura" aria-label="N_bill" aria-describedby="basic-addon1">
+                <input type="text" class="form-control input_products" name="N_bill"  placeholder="Numero de factura" aria-label="N_bill" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-50">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-event"></i></span>
-                <input type="date" class="form-control"  aria-label="date" aria-describedby="basic-addon1">
+                <input type="date" class="form-control input_products" name="date_buy"  aria-label="date" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-50">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag"></i></span>
-                <input type="text" class="form-control" placeholder="Vendedor" aria-label="name" aria-describedby="basic-addon1">
+                <input type="text" class="form-control input_products" name="seller" placeholder="Vendedor" aria-label="name" aria-describedby="basic-addon1">
             </div>
         </div>
     </div>
@@ -23,16 +23,16 @@
         <div class="col-sm-4 d-flex gap-5 w-100">
             <div class="input-group mb-3 w-50">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" placeholder="Numero de identificación" aria-label="N_bill" aria-describedby="basic-addon1">
+                <input type="text" class="form-control input_products" name="ID_user" placeholder="Numero de identificación" aria-label="N_bill" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-50">
-                <input type="text" class="form-control" placeholder="Nombre completo" aria-label="full_name">
+                <input type="text" class="form-control input_products" name="full_name" placeholder="Nombre completo" aria-label="full_name">
             </div>
 
             <div class="input-group mb-3 w-50">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope"></i></span>
-                <input type="text" class="form-control" placeholder="Correo electronico" aria-label="email" aria-describedby="basic-addon1">
+                <input type="text" class="form-control input_products" name="email" placeholder="Correo electronico" aria-label="email" aria-describedby="basic-addon1">
             </div>
         </div>
         </div>
@@ -41,85 +41,68 @@
         <div class="col-sm-4 d-flex gap-5 w-100">
             <div class="input-group mb-3 w-50">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" placeholder="Direccion" aria-label="N_bill" aria-describedby="basic-addon1">
+                <input type="text" class="form-control input_products" name="address" placeholder="Direccion" aria-label="N_bill" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-50">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" placeholder="Telefono de contacto" aria-label="full_name">
+                <input type="text" class="form-control input_products" name="contact_number" placeholder="Telefono de contacto" aria-label="full_name">
             </div>
         </div>
     </div>
 </div>
 
-<div class="container"> 
-    <div class="row">
-        <div class="col w-100">
-            <button class="btn btn-dark mt-3 w-100">Detalle de factura</button>
-            <button class="btn btn-danger mt-1 w-100">Añadir factura ++</button>
-        </div>        
+
+<div class="container">
+    <div class="row"> 
+        <div class="col text-center lh-lg">
+            <span class="fs-3">Detalle factura</span>
+        </div>
     </div>
 </div>
 
-<div class="container bg-secondary rounded-2 mt-3" style="border: 2px dashed #000">   
+<div class="container bg-secondary rounded-2 mt-3" id="products" style="border: 2px dashed #000; --bs-bg-opacity: .5;">   
     <div class="row mt-3">
         <div class="col-sm-4 d-flex gap-3 w-100">
             <div class="input-group mb-3 w-50">
-                <input type="text" class="form-control" placeholder="Cod producto" aria-label="N_bill" aria-describedby="basic-addon1">
+                <input type="text" class="form-control input_products" name="cod_product" placeholder="Cod producto" aria-label="N_bill" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-50">
-                <input type="text" placeholder="Nombre del producto" class="form-control"  aria-label="date" aria-describedby="basic-addon1">
+                <input type="text" placeholder="Nombre del producto" name="name_product" class="form-control input_products"  aria-label="date" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-50">
-                <input type="number" class="form-control" placeholder="Cantidad" aria-label="name" aria-describedby="basic-addon1">
+                <input type="number" class="form-control input_products" name="amount" placeholder="Cantidad" aria-label="name" aria-describedby="basic-addon1" value="0" readonly>
             </div>
 
             <div class="input-group mb-3 w-50">
-                <input type="number" class="form-control" placeholder="Valor Unit" aria-label="name" aria-describedby="basic-addon1">
+                <input type="number" class="form-control input_products" name="value_init" placeholder="Valor Unit" aria-label="name" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-50">
-                <button class="btn btn-success w-100">+</button>
+                <button class="btn btn-success w-100" id="amount-plus">+</button>
             </div>
             <div class="input-group mb-3 w-50">
-                <button class="btn btn-danger w-100">-</button>
+                <button class="btn btn-danger w-100" id="amount-less">-</button>
             </div>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-sm-4 d-flex gap-3 w-100">
-            <div class="input-group mb-3 w-50">
-                <input type="text" class="form-control" placeholder="Cod producto" aria-label="N_bill" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group mb-3 w-50">
-                <input type="text" placeholder="Nombre del producto" class="form-control"  aria-label="date" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group mb-3 w-50">
-                <input type="number" class="form-control" placeholder="Cantidad" aria-label="name" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group mb-3 w-50">
-                <input type="number" class="form-control" placeholder="Valor Unit" aria-label="name" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group mb-3 w-50">
-                <button class="btn btn-success w-100">+</button>
-            </div>
-            <div class="input-group mb-3 w-50">
-                <button class="btn btn-danger w-100">-</button>
-            </div>
-        </div>
 </div>
-</div>
+
 
 <div class="container">
     <div class="row">
         <div class="col w-100">
-            <button class="btn btn-success mt-2 w-50">finalizar compra</button>
+            <button class="btn btn-success mt-2 w-50" id="buy">finalizar compra</button>
         </div>        
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="bill d-flex flex-column justify-content-center p-3"></div>
+        </div>
     </div>
 </div>
