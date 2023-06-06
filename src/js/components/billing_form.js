@@ -14,9 +14,24 @@ export default class BILLING_HEADER extends HTMLElement {
   }
 
   async addProduct(e) {
-    let html = await (await fetch('src/js/components/templates/product.html')).text(); 
     this.productContainer = this.querySelector('#products'); 
-    this.productContainer.insertAdjacentHTML('beforeend', html); 
+    let html = await (await fetch('src/js/components/templates/product.html')).text(); 
+    let parse = new DOMParser().parseFromString(html, "text/html");
+    let arr = [...parse.body.childNodes]; 
+    let number = JSON.parse(localStorage.getItem('newProduct')); 
+    let HTMLRender; 
+    
+     for(let x = 0; x < arr.length; x++){
+       for(let y = 0; y < arr[x].childNodes.length; y++) {
+           let setNumber = parseInt(number) + 1; 
+           localStorage.setItem("newProduct", setNumber); 
+           HTMLRender = arr[x].childNodes[y].nextElementSibling; 
+           HTMLRender.setAttribute('id', `product_${setNumber}`);
+           break;
+        }
+     }
+   
+    this.productContainer.insertAdjacentElement('beforeend', HTMLRender); 
     this.amount();
   }
 
@@ -38,8 +53,8 @@ export default class BILLING_HEADER extends HTMLElement {
         <span>Cantidad: ${data.amount}</span><br>
         <span>Valor de producto por unidad: ${data.value_init}</span>
     `; 
-
-    this.bill.insertAdjacentHTML('beforeend', tmp); 
+     this.bill.classList.add('bg-secondary');
+     this.bill.insertAdjacentHTML('beforeend', tmp); 
   }
 
   amount() {
@@ -59,13 +74,14 @@ export default class BILLING_HEADER extends HTMLElement {
                   break;
               case "-":
                   currentValue--;
-                  amount.value == 0 ? (amount.value = 0) : (amount.value = currentValue);
+                  let elementForRemove = button.parentNode.parentNode; 
+                  amount.value == 0 ? elementForRemove.parentNode.removeChild( ): 
+                  (amount.value = currentValue);
                   break;
             }
         }
     })
   }
-
 
   addDataForm(inputs) {
     let data = new FormData();
@@ -90,6 +106,7 @@ export default class BILLING_HEADER extends HTMLElement {
 
   connectedCallback() {
     Promise.resolve(BILLING_HEADER.get_component()).then((html) => {
+      localStorage.setItem('newProduct', "1"); 
       this.innerHTML = html;
       this.btnBuy = this.querySelector("#buy");
       this.btnBuy.addEventListener("click", this.handleEvent.bind(this));
