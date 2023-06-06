@@ -61,41 +61,42 @@
     </div>
 </div>
 
-<div class="container bg-secondary rounded-2 mt-3" id="products" style="border: 2px dashed #000; --bs-bg-opacity: .5;">   
-    <div class="row mt-3">
-        <div class="col-sm-4 d-flex gap-3 w-100">
-            <div class="input-group mb-3 w-50">
-                <input type="text" class="form-control input_products" name="cod_product" placeholder="Cod producto" aria-label="N_bill" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group mb-3 w-50">
-                <input type="text" placeholder="Nombre del producto" name="name_product" class="form-control input_products"  aria-label="date" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group mb-3 w-50">
-                <input type="number" class="form-control input_products" name="amount" placeholder="Cantidad" aria-label="name" aria-describedby="basic-addon1" value="0" readonly>
-            </div>
-
-            <div class="input-group mb-3 w-50">
-                <input type="number" class="form-control input_products" name="value_init" placeholder="Valor Unit" aria-label="name" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group mb-3 w-50">
-                <button class="btn btn-success w-100" id="amount-plus">+</button>
-            </div>
-            <div class="input-group mb-3 w-50">
-                <button class="btn btn-danger w-100" id="amount-less">-</button>
+    <div class="container bg-secondary rounded-2 mt-3 overflow-auto" id="products" style="border: 2px dashed #000; --bs-bg-opacity: .5; height: 80px">   
+        <div class="row mt-3">
+            <div class="col-sm-4 d-flex align-items-center gap-3 w-100">
+                <div class="input-group mb-3 w-50">
+                    <input type="text" class="form-control input_products" name="cod_product" placeholder="Cod producto" aria-label="N_bill" aria-describedby="basic-addon1">
+                </div>
+    
+                <div class="input-group mb-3 w-50">
+                    <input type="text" placeholder="Nombre del producto" name="name_product" class="form-control input_products"  aria-label="date" aria-describedby="basic-addon1">
+                </div>
+    
+                <div class="input-group mb-3 w-50">
+                    <input type="number" class="form-control input_products" name="amount" placeholder="Cantidad" aria-label="name" aria-describedby="basic-addon1" value="0" readonly>
+                </div>
+    
+                <div class="input-group mb-3 w-50">
+                    <input type="number" class="form-control input_products" name="value_init" placeholder="Valor Unit" aria-label="name" aria-describedby="basic-addon1">
+                </div>
+    
+                <div class="input-group mb-3 w-50">
+                    <button class="btn btn-success w-100 amount">+</button>
+                </div>
+                <div class="input-group mb-3 w-50">
+                    <button class="btn btn-danger w-100 amount">-</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 <div class="container">
     <div class="row">
-        <div class="col w-100">
+        <div class="col w-100 d-flex gap-3" >    
             <button class="btn btn-success mt-2 w-50" id="buy">finalizar compra</button>
-        </div>        
+            <button class="btn btn-warning mt-2 w-50" id="add">Agregar Producto</button>
+        </div>          
     </div>
 </div>
 
