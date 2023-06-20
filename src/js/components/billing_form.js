@@ -75,7 +75,7 @@ export default class BILLING_HEADER extends HTMLElement {
               case "-":
                   currentValue--;
                   let elementForRemove = button.parentNode.parentNode; 
-                  amount.value == 0 ? elementForRemove.parentNode.removeChild( ): 
+                  amount.value == 0 ? elementForRemove.parentNode.removeChild(elementForRemove): 
                   (amount.value = currentValue);
                   break;
             }
