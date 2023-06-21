@@ -11,14 +11,13 @@
         }
     }
 
-
     function autoload($class) {
         $Directories = [ 
-            dirname(__DIR__).'server/bill/',
-            dirname(__DIR__).'server/client/',
-            dirname(__DIR__).'server/db/',
-            dirname(__DIR__).'server/product/',
-            dirname(__DIR__).'server/seller/',
+            dirname(__DIR__).'/server/bill/',
+            dirname(__DIR__).'/server/client/',
+            dirname(__DIR__).'/server/db/',
+            dirname(__DIR__).'/server/product/',
+            dirname(__DIR__).'/server/seller/',
         ]; 
 
         $classFile = str_replace('\\', '/', $class) . '.php';
@@ -33,3 +32,5 @@
     }
 
     spl_autoload_register('autoload'); 
+
+    bill::getInstance(json_decode(file_get_contents("php://input"), true))->postDataBill(); 
